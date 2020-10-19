@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
 
+//@Service
 public final class InMemoryCourseRepository implements CourseRepository {
     private HashMap<String, Course> courses = new HashMap<>();
 
