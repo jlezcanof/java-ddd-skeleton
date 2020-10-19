@@ -1,9 +1,11 @@
 package tv.codely.apps.mooc.backend.controller.students;
 
+import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 import tv.codely.apps.mooc.MoocApplicationTestCase;
 
 public final class StudentsPutControllerShould extends MoocApplicationTestCase {
+    @Ignore
     @Test
     void create_a_valid_non_existing_student() throws Exception {
         assertRequestWithBody(
