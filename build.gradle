@@ -1,5 +1,4 @@
 // Common for all projects
-// Octubre 2022
 allprojects {
   apply plugin: 'java'
   apply plugin: 'io.spring.dependency-management'
@@ -92,10 +91,10 @@ subprojects {
   }
 
   dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'//2.3.12.RELEASE..2.1.8.RELEASE
+    implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'
 
     testImplementation rootProject.sourceSets.main.output
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'//2.2.1.RELEASE
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
 
     if (project.name != "shared") {
       implementation project(":shared")
@@ -118,7 +117,7 @@ buildscript {
     mavenCentral()
   }
   dependencies {
-    classpath('org.springframework.boot:spring-boot-gradle-plugin:2.2.1.RELEASE')
+    classpath('org.springframework.boot:spring-boot-gradle-plugin:2.5.14')//con la 2.6.0 peta tests
   }
 }
 
@@ -140,13 +139,13 @@ bootJar {
 }
 
 dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'//2.1.8.RELEASE...2.3.12.RELEASE
+  implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'
 
   implementation project(":shared")
   implementation project(":backoffice")
   implementation project(":mooc")
 
-  testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'//2.1.8.RELEASE
+  testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'
   testImplementation project(":shared").sourceSets.test.output
 }
 
