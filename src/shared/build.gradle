@@ -1,3 +1,2 @@
 dependencies {
-    testImplementation 'org.yaml:snakeyaml:1.32'
 }
