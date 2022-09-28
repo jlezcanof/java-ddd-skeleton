@@ -95,7 +95,7 @@ subprojects {
     implementation 'org.springframework.boot:spring-boot-starter-web:2.7.4'//2.3.12.RELEASE..2.1.8.RELEASE
 
     testImplementation rootProject.sourceSets.main.output
-    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.2.1.RELEASE'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'//2.2.1.RELEASE
 
     if (project.name != "shared") {
       implementation project(":shared")
@@ -146,7 +146,7 @@ dependencies {
   implementation project(":backoffice")
   implementation project(":mooc")
 
-  testImplementation 'org.springframework.boot:spring-boot-starter-test:2.1.8.RELEASE'
+  testImplementation 'org.springframework.boot:spring-boot-starter-test:2.7.4'//2.1.8.RELEASE
   testImplementation project(":shared").sourceSets.test.output
 }
 
