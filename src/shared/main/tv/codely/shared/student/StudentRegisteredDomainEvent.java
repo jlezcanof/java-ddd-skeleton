@@ -47,7 +47,7 @@ public final class StudentRegisteredDomainEvent extends DomainEvent {
 
     @Override
     public String eventName() {
-        return "course.created";
+        return "student.created";
     }
 
     @Override
@@ -56,7 +56,6 @@ public final class StudentRegisteredDomainEvent extends DomainEvent {
             put("name", name);
             put("surname", surname);
             put("email", email);
-            ;
         }};
     }
 

@@ -24,7 +24,7 @@ public final class StudentsPutController extends ApiController {
     }
 
     @PutMapping(value = "/students/{id}")
-    public ResponseEntity<String> index(
+    public ResponseEntity<String> create(
         @PathVariable String id,
         @RequestBody Request request
                                        ) throws CommandHandlerExecutionError {

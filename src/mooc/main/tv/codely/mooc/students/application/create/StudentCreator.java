@@ -1,6 +1,5 @@
 package tv.codely.mooc.students.application.create;
 
-import tv.codely.mooc.courses.domain.Course;
 import tv.codely.mooc.students.domain.Student;
 import tv.codely.mooc.students.domain.StudentEmail;
 import tv.codely.mooc.students.domain.StudentId;
@@ -21,10 +20,10 @@ public final class StudentCreator {
     }
 
     public void create(StudentId id, StudentName name, StudentSurname surname, StudentEmail email) {
-        //Student student = Student.c
-        //Course course = Course.create(id, name, duration);
 
-        //repository.save(course);
-        //eventBus.publish(course.pullDomainEvents());
+        Student student = Student.create(id, name, surname, email);
+
+        repository.register(student);
+        eventBus.publish(student.pullDomainEvents());
     }
 }
