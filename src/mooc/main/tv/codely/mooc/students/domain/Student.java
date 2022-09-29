@@ -1,5 +1,6 @@
 package tv.codely.mooc.students.domain;
 
+import java.util.Objects;
 import tv.codely.shared.domain.AggregateRoot;
 import tv.codely.shared.student.StudentRegisteredDomainEvent;
 
@@ -32,6 +33,8 @@ public final class Student extends AggregateRoot {
         return email;
     }
 
+
+
     public static Student create(StudentId id, StudentName name,
                                  StudentSurname surname, StudentEmail email) {
         Student student = new Student(id, name, surname, email);
@@ -40,5 +43,23 @@ public final class Student extends AggregateRoot {
             surname.value(), email.value()));
 
         return student;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+
+        Student student = (Student) o;
+
+        return  Objects.equals(id, student.id) &&
+                Objects.equals(name, student.name ) &&
+                Objects.equals(surname, student.surname) &&
+                Objects.equals(email, student.email);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, name, surname, email);
     }
 }

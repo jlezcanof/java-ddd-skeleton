@@ -99,7 +99,7 @@ public final class StudentRegisteredDomainEvent extends DomainEvent {
         StudentRegisteredDomainEvent that = (StudentRegisteredDomainEvent) o;
         return name.equals(that.name) &&
             surname.equals(that.surname) &&
-            email.equals(that.surname)
+            email.equals(that.email)
             ;
     }
 
