@@ -18,9 +18,9 @@ public final class StudentResponse implements Response {
 
     public static StudentResponse fromAggregate(Student student) {
         return new StudentResponse(student.id().value(),
-            student.name(),
-            student.surname(),
-            student.email());
+            student.name().value(),
+            student.surname().value(),
+            student.email().value());
     }
 
     public String id() {
