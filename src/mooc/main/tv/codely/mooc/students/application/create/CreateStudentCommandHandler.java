@@ -1,7 +1,9 @@
 package tv.codely.mooc.students.application.create;
 
-import tv.codely.mooc.courses.domain.CourseId;
-import tv.codely.mooc.courses.domain.CourseName;
+import tv.codely.mooc.students.domain.StudentEmail;
+import tv.codely.mooc.students.domain.StudentId;
+import tv.codely.mooc.students.domain.StudentName;
+import tv.codely.mooc.students.domain.StudentSurname;
 import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.bus.command.CommandHandler;
 
@@ -15,11 +17,11 @@ public final class CreateStudentCommandHandler implements CommandHandler<CreateS
 
     @Override
     public void handle(CreateStudentCommand command) {
-        CourseId       id       = new CourseId(command.id());
-        CourseName     name     = new CourseName(command.name());
-        //TODO
-        //CourseDuration duration = new CourseDuration(command.duration());
+        StudentId id           = new StudentId(command.id());
+        StudentName name       = new StudentName(command.name());
+        StudentSurname surName = new StudentSurname(command.surname());
+        StudentEmail email     = new StudentEmail(command.email());
 
-        //creator.create(id, name, duration);
+        creator.create(id, name, surName, email);
     }
 }

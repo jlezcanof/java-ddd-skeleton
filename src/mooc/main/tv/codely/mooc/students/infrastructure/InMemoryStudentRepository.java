@@ -8,11 +8,13 @@ import tv.codely.mooc.students.domain.StudentId;
 import tv.codely.mooc.students.domain.StudentName;
 import tv.codely.mooc.students.domain.StudentRepository;
 import tv.codely.mooc.students.domain.StudentSurname;
+import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.UuidGenerator;
 
 import java.util.Arrays;
 import java.util.List;
 
+@Service
 public final class InMemoryStudentRepository implements StudentRepository {
     private UuidGenerator generator;
     private Map<String, Student> students = new HashMap<>();
