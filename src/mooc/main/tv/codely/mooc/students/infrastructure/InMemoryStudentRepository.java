@@ -1,20 +1,21 @@
 package tv.codely.mooc.students.infrastructure;
 
+import java.util.HashMap;
+import java.util.Map;
 import tv.codely.mooc.students.domain.Student;
 import tv.codely.mooc.students.domain.StudentEmail;
 import tv.codely.mooc.students.domain.StudentId;
 import tv.codely.mooc.students.domain.StudentName;
 import tv.codely.mooc.students.domain.StudentRepository;
 import tv.codely.mooc.students.domain.StudentSurname;
-import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.UuidGenerator;
 
 import java.util.Arrays;
 import java.util.List;
 
-@Service
 public final class InMemoryStudentRepository implements StudentRepository {
     private UuidGenerator generator;
+    private Map<String, Student> students = new HashMap<>();
 
     public InMemoryStudentRepository(UuidGenerator generator) {
         this.generator = generator;
@@ -29,5 +30,10 @@ public final class InMemoryStudentRepository implements StudentRepository {
             new Student(new StudentId(generator.generate()), new StudentName("Other name"),
                 new StudentSurname("Other surname"), new StudentEmail("another@mail.com"))
         );
+    }
+
+    @Override
+    public void register(Student student) {
+            students.put(student.id().value(), student);
     }
 }
