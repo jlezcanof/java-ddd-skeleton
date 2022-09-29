@@ -2,7 +2,7 @@ package tv.codely.mooc.students.domain;
 
 import java.util.Objects;
 import tv.codely.shared.domain.AggregateRoot;
-import tv.codely.shared.student.StudentRegisteredDomainEvent;
+import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
 
 public final class Student extends AggregateRoot {
     private final StudentId      id;

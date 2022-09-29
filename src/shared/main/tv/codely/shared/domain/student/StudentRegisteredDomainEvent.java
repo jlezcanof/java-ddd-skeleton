@@ -1,4 +1,4 @@
-package tv.codely.shared.student;
+package tv.codely.shared.domain.student;
 
 import java.io.Serializable;
 import java.util.HashMap;

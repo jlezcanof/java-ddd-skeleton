@@ -1,6 +1,6 @@
 package tv.codely.mooc.students.domain;
 
-import tv.codely.shared.student.StudentRegisteredDomainEvent;
+import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
 
 public final class StudentRegisteredDomainEventMother {
     public static StudentRegisteredDomainEvent create(StudentId id, StudentName name,

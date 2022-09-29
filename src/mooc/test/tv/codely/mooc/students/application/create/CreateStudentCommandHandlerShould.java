@@ -6,7 +6,7 @@ import tv.codely.mooc.students.domain.Student;
 import tv.codely.mooc.students.domain.StudentMother;
 import tv.codely.mooc.students.domain.StudentRegisteredDomainEventMother;
 import tv.codely.mooc.students.infraestructure.StudentModuleUnitTestCase;
-import tv.codely.shared.student.StudentRegisteredDomainEvent;
+import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
 
 final class CreateStudentCommandHandlerShould extends StudentModuleUnitTestCase {
 
