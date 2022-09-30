@@ -21,10 +21,18 @@ run-tests:
 test:
 	@docker exec codelytv-ddd_skeleton-java ./gradlew test --warning-mode all
 
+.PHONY: test-i
+test-i:
+	@docker exec codelytv-ddd_skeleton-java ./gradlew test -i
+
+.PHONY: test-scan
+test-scan:
+	@docker exec codelytv-ddd_skeleton-java ./gradlew test -i --scan
+
 #.PHONY: run
 #run:
-#	@./gradlew :bootRun
-# no funciona porque necesita 2 argumentos
+#	@./gradlew :run
+# no funciona porque necesita run no es reconocido para esta version y ademas necesita 2 argumentos
 
 .PHONY: ping-mysql
 ping-mysql:
@@ -42,3 +50,7 @@ start-backoffice_backend:
 .PHONY: start-backoffice_frontend
 start-backoffice_frontend:
 	@./gradlew :bootRun --args='backoffice_frontend server'
+
+.PHONY: start-mooc_backend_api
+start-mooc_backend_api:
+	@./gradlew :bootRun --args='mooc_backend api'
