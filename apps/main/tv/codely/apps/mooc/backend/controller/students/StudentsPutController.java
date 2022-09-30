@@ -26,7 +26,7 @@ public final class StudentsPutController extends ApiController {
     @PutMapping(value = "/students/{id}")
     public ResponseEntity<String> create(
         @PathVariable String id,
-        @RequestBody Request request
+        @RequestBody RegisterUserRequest request
                                        ) throws CommandHandlerExecutionError {
         dispatch(new CreateStudentCommand(id, request.name(), request.surname(), request.email()));
 
@@ -39,14 +39,14 @@ public final class StudentsPutController extends ApiController {
     }
 }
 
-final class Request {
+final class RegisterUserRequest {
     private final String name;
 
     private final String surname;
 
     private final String email;
 
-    public Request(String name, String surname, String email) {
+    public RegisterUserRequest(String name, String surname, String email) {
         this.name = name;
         this.surname = surname;
         this.email = email;

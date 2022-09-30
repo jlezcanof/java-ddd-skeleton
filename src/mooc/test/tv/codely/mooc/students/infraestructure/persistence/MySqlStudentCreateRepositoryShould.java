@@ -18,6 +18,5 @@ class MySqlStudentCreateRepositoryShould extends StudentCreateModuleInfrastructu
         mySqlStudentRepository.register(creator);
 
         assertEquals(Optional.of(creator), mySqlStudentRepository.search(creator.id()));
-        //TODO mySqlStudentRepository.searchAll()
     }
 }
