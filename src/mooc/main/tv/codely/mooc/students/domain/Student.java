@@ -17,6 +17,13 @@ public final class Student extends AggregateRoot {
         this.email   = email;
     }
 
+    private Student() {
+        id       = null;
+        name     = null;
+        surname  = null;
+        email    = null;
+    }
+
     public StudentId id() {
         return id;
     }

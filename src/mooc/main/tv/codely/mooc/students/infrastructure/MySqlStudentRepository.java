@@ -11,13 +11,12 @@ import tv.codely.mooc.students.domain.StudentRepository;
 import tv.codely.shared.domain.Service;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 
-//@Service
-//@Transactional("mooc-transaction_manager")
-public final class MySqlStudentRepository extends HibernateRepository<Student> implements
-    StudentRepository {//@Qualifier("mooc-session_factory")
-    public MySqlStudentRepository(SessionFactory sessionFactory,
-                                  Class<Student> aggregateClass) {
-        super(sessionFactory, aggregateClass);
+@Service
+@Transactional("mooc-transaction_manager")
+public class MySqlStudentRepository extends HibernateRepository<Student> implements
+    StudentRepository {
+    public MySqlStudentRepository(@Qualifier("mooc-session_factory") SessionFactory sessionFactory) {
+        super(sessionFactory, Student.class);
     }
 
     @Override

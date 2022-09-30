@@ -9,6 +9,6 @@ public final class StudentEmail extends EmailValueObject {
     }
 
     private StudentEmail() {
-        super("");
+        super("a@a.es");// TODO temporal
     }
 }
