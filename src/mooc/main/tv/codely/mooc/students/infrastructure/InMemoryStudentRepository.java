@@ -2,6 +2,7 @@ package tv.codely.mooc.students.infrastructure;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import tv.codely.mooc.students.domain.Student;
 import tv.codely.mooc.students.domain.StudentEmail;
 import tv.codely.mooc.students.domain.StudentId;
@@ -37,5 +38,10 @@ public final class InMemoryStudentRepository implements StudentRepository {
     @Override
     public void register(Student student) {
             students.put(student.id().value(), student);
+    }
+
+    @Override
+    public Optional<Student> search(StudentId id) {
+        return Optional.ofNullable(students.get(id.value()));
     }
 }
