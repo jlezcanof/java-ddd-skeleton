@@ -47,7 +47,7 @@ public final class StudentRegisteredDomainEvent extends DomainEvent {
 
     @Override
     public String eventName() {
-        return "student.created";
+        return "student.registered";
     }
 
     @Override
