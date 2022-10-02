@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import tv.codely.mooc.students.application.create.CreateStudentCommand;
 import tv.codely.shared.domain.DomainError;
+import tv.codely.shared.domain.InvalidFieldEmail;
 import tv.codely.shared.domain.bus.command.CommandBus;
 import tv.codely.shared.domain.bus.command.CommandHandlerExecutionError;
 import tv.codely.shared.domain.bus.query.QueryBus;
@@ -35,7 +36,9 @@ public final class StudentsPutController extends ApiController {
 
     @Override
     public HashMap<Class<? extends DomainError>, HttpStatus> errorMapping() {
-        return null;
+        return new HashMap<Class<? extends DomainError>, HttpStatus>() {{
+            put(InvalidFieldEmail.class, HttpStatus.BAD_REQUEST);
+        }};
     }
 }
 

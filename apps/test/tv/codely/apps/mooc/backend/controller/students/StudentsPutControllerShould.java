@@ -1,7 +1,10 @@
 package tv.codely.apps.mooc.backend.controller.students;
 
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import tv.codely.apps.mooc.MoocApplicationTestCase;
+import tv.codely.shared.domain.InvalidFieldEmail;
 
 public final class StudentsPutControllerShould extends MoocApplicationTestCase {
 
@@ -16,14 +19,18 @@ public final class StudentsPutControllerShould extends MoocApplicationTestCase {
                              );
     }
 
-    //    @Test
-//    void not_correct_create_student() throws Exception {
-//        IllegalArgumentException illegalArgumentException = Assertions.assertThrows();
-//        assertRequestWithBody(
-//            "PUT",
-//            "/courses/1aab45ba-3c7a-4344-8936-",
-//            "{\"name\": \"The best course\", \"duration\": \"5 hours\"}",
-//            400
-//                             );
-//    }
+        @Test
+        @Disabled
+        void student_with_invalid_email() {
+            Assertions.assertThrows(InvalidFieldEmail.class,
+                () ->
+                    assertRequestWithBody(
+                        "PUT",
+                        "/students/8974825f-2ed3-42c8-a134-c393618961f5",
+                        "{\"name\": \"guzman\", \"surname\": \"el bueno\", \"email\": \"invalidemail\"}",
+                        400)
+            );
+
+
+    }
 }
