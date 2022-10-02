@@ -1,6 +1,10 @@
 package tv.codely.mooc.courses.application.create;
 
-import tv.codely.mooc.courses.domain.*;
+import tv.codely.mooc.courses.domain.Course;
+import tv.codely.mooc.courses.domain.CourseDuration;
+import tv.codely.mooc.courses.domain.CourseId;
+import tv.codely.mooc.courses.domain.CourseName;
+import tv.codely.mooc.courses.domain.CourseRepository;
 import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.bus.event.EventBus;
 

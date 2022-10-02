@@ -41,15 +41,12 @@ public final class CoursesPutController extends ApiController {
 }
 
 final class Request {
-    private String name;
-    private String duration;
+    private final String name;
+    private final String duration;
 
-    public void setDuration(String duration) {
+    public Request(String name, String duration){
+        this.name     = name;
         this.duration = duration;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     String name() {

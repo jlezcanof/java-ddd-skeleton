@@ -5,9 +5,13 @@ all: build
 up:
 	@docker-compose up -d
 
+.PHONY: down
+down:
+	@docker-compose down
+
 .PHONY: build
 build:
-	@./gradlew build --warning-mode all
+	@./gradlew build -x test --warning-mode all
 
 .PHONY: run-tests
 run-tests:
@@ -17,9 +21,18 @@ run-tests:
 test:
 	@docker exec codelytv-ddd_skeleton-java ./gradlew test --warning-mode all
 
-.PHONY: run
-run:
-	@./gradlew :run
+.PHONY: test-i
+test-i:
+	@docker exec codelytv-ddd_skeleton-java ./gradlew test -i
+
+.PHONY: test-scan
+test-scan:
+	@docker exec codelytv-ddd_skeleton-java ./gradlew test -i --scan
+
+#.PHONY: run
+#run:
+#	@./gradlew :run
+# no funciona porque necesita run no es reconocido para esta version y ademas necesita 2 argumentos
 
 .PHONY: ping-mysql
 ping-mysql:
@@ -28,8 +41,16 @@ ping-mysql:
 # Start the app
 .PHONY: start-mooc_backend
 start-mooc_backend:
-	@./gradlew :run --args='mooc_backend server'
+	@./gradlew :bootRun --args='mooc_backend server'
+
+.PHONY: start-backoffice_backend
+start-backoffice_backend:
+	@./gradlew :bootRun --args='backoffice_backend server'
 
 .PHONY: start-backoffice_frontend
 start-backoffice_frontend:
-	@./gradlew :run --args='backoffice_frontend server'
+	@./gradlew :bootRun --args='backoffice_frontend server'
+
+.PHONY: start-mooc_backend_api
+start-mooc_backend_api:
+	@./gradlew :bootRun --args='mooc_backend api'
