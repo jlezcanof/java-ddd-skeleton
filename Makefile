@@ -38,10 +38,15 @@ test-scan:
 ping-mysql:
 	@docker exec codelytv-java_ddd_skeleton-mysql mysqladmin --user=root --password= --host "127.0.0.1" ping --silent
 
-# Start the app
+# Start mooc backend server
 .PHONY: start-mooc_backend
 start-mooc_backend:
 	@./gradlew :bootRun --args='mooc_backend server'
+
+# Start mooc frontend server
+.PHONY: start-mooc_frontend
+start-mooc_frontend:
+	@./gradlew :bootRun --args='mooc_frontend server'
 
 .PHONY: start-backoffice_backend
 start-backoffice_backend:
