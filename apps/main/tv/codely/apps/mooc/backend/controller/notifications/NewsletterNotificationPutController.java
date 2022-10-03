@@ -9,7 +9,6 @@ import tv.codely.mooc.notifications.application.send_new_courses_newsletter.Send
 import tv.codely.shared.domain.DomainError;
 import tv.codely.shared.domain.bus.command.CommandBus;
 import tv.codely.shared.domain.bus.command.CommandHandlerExecutionError;
-import tv.codely.shared.domain.bus.command.CommandNotRegisteredError;
 import tv.codely.shared.domain.bus.query.QueryBus;
 import tv.codely.shared.infrastructure.spring.ApiController;
 

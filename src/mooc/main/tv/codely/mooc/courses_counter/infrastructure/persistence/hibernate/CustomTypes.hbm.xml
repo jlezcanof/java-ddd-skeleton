@@ -4,5 +4,5 @@
         "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
 
 <hibernate-mapping>
-    <typedef class="tv.codely.shared.infrastructure.hibernate.JsonListType" name="json_string" />
+    <typedef class="tv.codely.shared.infrastructure.hibernate.JsonListType" name="json_list_string" />
 </hibernate-mapping>
