@@ -17,3 +17,11 @@ tasks :
 ¿org.springframework:spring-orm:5.2.2.RELEASE?
 
 3) change code (HibernateRepository, MySqlEventBus, MySqlDomainEventsConsumer..)
+
+4) general links:
+
+https://stackoverflow.com/questions/72347217/migration-to-hibernate-6
+https://docs.jboss.org/hibernate/search/6.0/reference/en-US/html_single/#getting-started-indexing
+https://docs.jboss.org/hibernate/search/6.0/migration/html_single/#_introduction
+https://docs.jboss.org/hibernate/search/6.0/migration/html_single/#error-handler
+
