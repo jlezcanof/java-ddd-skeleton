@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Test;
 import tv.codely.apps.mooc.MoocApplicationTestCase;
 import tv.codely.shared.domain.InvalidFieldEmail;
 
-@Disabled
 public final class StudentsPutControllerShould extends MoocApplicationTestCase {
 
     @Test
