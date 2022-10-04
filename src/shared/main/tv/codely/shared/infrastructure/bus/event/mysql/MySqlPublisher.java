@@ -6,12 +6,11 @@ import java.util.HashMap;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.context.annotation.Primary;
 import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.Utils;
 import tv.codely.shared.domain.bus.event.DomainEvent;
 
-//@Primary
+@Service
 public final class MySqlPublisher {
 
     @Qualifier("mooc-session_factory")

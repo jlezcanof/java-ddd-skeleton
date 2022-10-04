@@ -7,27 +7,33 @@ import org.springframework.context.annotation.Configuration;
 import tv.codely.shared.infrastructure.bus.event.DomainEventsInformation;
 import tv.codely.shared.infrastructure.bus.event.mysql.MySqlDomainEventsConsumer;
 import tv.codely.shared.infrastructure.bus.event.mysql.MySqlEventBus;
+import tv.codely.shared.infrastructure.bus.event.mysql.MySqlPublisher;
 import tv.codely.shared.infrastructure.bus.event.spring.SpringApplicationEventBus;
+import tv.codely.shared.infrastructure.bus.inmemory.InMemoryEventBus;
 
 @Configuration
 public class MoocMySqlEventBusConfiguration {
     private final SessionFactory            sessionFactory;
     private final DomainEventsInformation   domainEventsInformation;
     private final SpringApplicationEventBus bus;
+    private final MySqlPublisher publisher;
+    private final InMemoryEventBus memoryEventBus;
 
     public MoocMySqlEventBusConfiguration(
         @Qualifier("mooc-session_factory") SessionFactory sessionFactory,
         DomainEventsInformation domainEventsInformation,
-        SpringApplicationEventBus bus
-    ) {
+        SpringApplicationEventBus bus,
+        MySqlPublisher publisher, InMemoryEventBus memoryEventBus) {
         this.sessionFactory          = sessionFactory;
         this.domainEventsInformation = domainEventsInformation;
         this.bus                     = bus;
+        this.publisher               = publisher;
+        this.memoryEventBus          = memoryEventBus;
     }
 
     @Bean
     public MySqlEventBus moocMysqlEventBus() {
-        return new MySqlEventBus(sessionFactory);
+        return new MySqlEventBus(publisher, memoryEventBus);
     }
 
     @Bean
