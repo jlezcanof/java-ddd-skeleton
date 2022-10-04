@@ -15,7 +15,7 @@
             <property name="value" column="total" type="integer" access="field" />
         </component>
 
-        <property name="existingStudents" column="existingStudents" access="field">
+        <property name="existingStudents" column="existing_students" access="field">
             <type name="json_list_string">
                 <param name="list_of">tv.codely.mooc.students.domain.StudentId</param>
             </type>
