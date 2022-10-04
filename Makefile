@@ -59,3 +59,11 @@ start-backoffice_frontend:
 .PHONY: start-mooc_backend_api
 start-mooc_backend_api:
 	@./gradlew :bootRun --args='mooc_backend api'
+
+.PHONY: start-mooc_backend_domain-events
+start-mooc_backend_domain-events:
+	@./gradlew :bootRun --args='mooc_backend domain-events:mysql:consume'
+
+.PHONY: start-backoffice_backend_domain-events
+start-backoffice_backend_domain-events:
+	@./gradlew :bootRun --args='backoffice_backend domain-events:mysql:consume'
