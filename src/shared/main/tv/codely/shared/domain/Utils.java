@@ -24,6 +24,7 @@ public final class Utils {
         try {
             return new ObjectMapper().writeValueAsString(map);
         } catch (JsonProcessingException e) {
+            //TODO lanzar una excepcion propia de nuestro dominio
             return "";
         }
     }

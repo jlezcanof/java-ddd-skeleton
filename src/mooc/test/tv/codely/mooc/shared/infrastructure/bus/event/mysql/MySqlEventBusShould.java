@@ -4,7 +4,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import tv.codely.mooc.MoocContextInfrastructureTestCase;
 import tv.codely.mooc.courses.domain.CourseCreatedDomainEventMother;
+import tv.codely.mooc.students.domain.StudentRegisteredDomainEventMother;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
+import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
 import tv.codely.shared.infrastructure.bus.event.mysql.MySqlDomainEventsConsumer;
 import tv.codely.shared.infrastructure.bus.event.mysql.MySqlEventBus;
 
@@ -21,6 +23,21 @@ class MySqlEventBusShould extends MoocContextInfrastructureTestCase {
     @Test
     void publish_and_consume_domain_events_from_msql() throws InterruptedException {
         CourseCreatedDomainEvent domainEvent = CourseCreatedDomainEventMother.random();
+
+        eventBus.publish(Collections.singletonList(domainEvent));
+
+        Thread consumerProcess = new Thread(() -> consumer.consume());
+        consumerProcess.start();
+
+        Thread.sleep(100);
+
+        consumer.stop();
+    }
+
+    @Test
+    void publish_and_consume_student_registered_from_msql() throws InterruptedException {
+        StudentRegisteredDomainEvent domainEvent =
+            StudentRegisteredDomainEventMother.random();
 
         eventBus.publish(Collections.singletonList(domainEvent));
 
