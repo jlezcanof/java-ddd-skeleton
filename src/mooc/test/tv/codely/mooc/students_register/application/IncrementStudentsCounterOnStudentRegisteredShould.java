@@ -10,7 +10,7 @@ import tv.codely.mooc.students_register.domain.StudentsRegister;
 import tv.codely.mooc.students_register.domain.StudentsRegisterMother;
 import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
 
-final class IncrementStudentsCounterOnCourseCreatedShould extends StudentsRegisterModuleUnitTestCase {
+final class IncrementStudentsCounterOnStudentRegisteredShould extends StudentsRegisterModuleUnitTestCase {
     IncrementerStudentsOnStudentRegistered subscriber;
 
     @BeforeEach
