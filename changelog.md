@@ -19,3 +19,5 @@
 9)  Crea un evento de dominio que se publique cada vez que un nuevo estudiante se registra en la aplicación de Mooc, de modo que otras piezas de la aplicación puedan reaccionar a dicho evento.
 
 10) Tal como hemos visto en el caso del backend del Mooc en el repo, prepara el comando necesario para recuperar en el backend del Backoffice los eventos que se hayan almacenado en BD.
+
+11) Crea un publicador en memoria en el repo utilizado en el curso que actúe a modo de fallback cuando el EventBus de MySql falle, cuando lo tengas.
