@@ -60,13 +60,25 @@ CREATE TABLE IF NOT EXISTS domain_events (
     DEFAULT CHARSET = utf8mb4
     COLLATE = utf8mb4_unicode_ci;
 
-    CREATE TABLE IF NOT EXISTS students (
-        id           CHAR(36)     NOT NULL,
-        name         CHAR(36)     NOT NULL,
-        surname      VARCHAR(255) NOT NULL,
-        email        VARCHAR(255) NOT NULL,
-        PRIMARY KEY (id)
-    )
-        ENGINE = InnoDB
-        DEFAULT CHARSET = utf8mb4
-        COLLATE = utf8mb4_unicode_ci;
+CREATE TABLE IF NOT EXISTS students (
+    id           CHAR(36)     NOT NULL,
+    name         CHAR(36)     NOT NULL,
+    surname      VARCHAR(255) NOT NULL,
+    email        VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS students_register (
+    id                CHAR(36) NOT NULL,
+    total             INT      NOT NULL,
+    existing_students JSON     NOT NULL,
+    PRIMARY KEY (id)
+)
+    ENGINE = InnoDB
+    DEFAULT CHARSET = utf8mb4
+    COLLATE = utf8mb4_unicode_ci;
+
+
