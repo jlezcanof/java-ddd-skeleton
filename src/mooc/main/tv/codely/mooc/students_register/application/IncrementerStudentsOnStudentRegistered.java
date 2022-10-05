@@ -1,6 +1,5 @@
 package tv.codely.mooc.students_register.application;
 
-import org.springframework.context.event.EventListener;
 import tv.codely.mooc.students.domain.StudentId;
 import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.bus.event.DomainEventSubscriber;
@@ -16,7 +15,6 @@ public final class IncrementerStudentsOnStudentRegistered {
         this.incrementer = incrementer;
     }
 
-    @EventListener
     public void on(StudentRegisteredDomainEvent event) {
         StudentId studentId = new StudentId(event.aggregateId());
 

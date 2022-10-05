@@ -15,7 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Configuration
+@Configuration//no es inyectable pero si va a proveer
+//Service indica que es inyectable
 public class RabbitMqEventBusConfiguration {
     private final DomainEventSubscribersInformation domainEventSubscribersInformation;
     private final DomainEventsInformation           domainEventsInformation;
@@ -33,6 +34,8 @@ public class RabbitMqEventBusConfiguration {
         this.exchangeName                      = config.get("RABBITMQ_EXCHANGE");
     }
 
+    //es inyectable y sabe que si alguien esta escuchando este CachingConnectionFactory
+    //se lo va  pasar
     @Bean
     public CachingConnectionFactory connection() throws ParameterNotExist {
         CachingConnectionFactory factory = new CachingConnectionFactory();

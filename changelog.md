@@ -21,3 +21,12 @@
 10) Tal como hemos visto en el caso del backend del Mooc en el repo, prepara el comando necesario para recuperar en el backend del Backoffice los eventos que se hayan almacenado en BD.
 
 11) Crea un publicador en memoria en el repo utilizado en el curso que actúe a modo de fallback cuando el EventBus de MySql falle.
+
+12) Actualmente la clase RabbitMqEventBusShould solamente comprueba si se publica y consume correctamente un evento.
+
+Se puede agregar casos de test para los siguientes escenarios:
+
+Comprobar si se dispara una exception al consumir eventos no existentes
+Comprobar si se reintenta un evento
+Comprobar se se envia la dead letter despues de reintentar varias veces.
+TODO

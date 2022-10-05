@@ -58,6 +58,9 @@ public class MySqlDomainEventsConsumer {
                 e.printStackTrace();
             }
 
+            // ACK DELETE FROM ...(no permitira usarlo como event store (historico de eventos)
+            // error handling ??
+
             sessionFactory.getCurrentSession().clear();
         }
     }
