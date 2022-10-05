@@ -6,10 +6,11 @@ import java.util.regex.Pattern;
 public abstract class EmailValueObject {
     private final String value;
 
-    private final String regexPattern ="^(.+)@(\\S+)$";
     //private final String regexPattern2 ="^[a-zA-Z0-9_!#$%&'*+/=?`{|}~^.-]+@[a-zA-Z0-9.-]+$";
 
     public EmailValueObject(final String value) {
+        // TODO quiza no sea necesario xk ya se realiza la validacion en EmailValidator
+        String regexPattern ="^(.+)@(\\S+)$";
         if (!Pattern.compile(regexPattern)
             .matcher(value)
             .matches()) {
