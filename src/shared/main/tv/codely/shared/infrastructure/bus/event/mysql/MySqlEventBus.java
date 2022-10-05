@@ -1,20 +1,22 @@
 package tv.codely.shared.infrastructure.bus.event.mysql;
 
-import org.hibernate.SessionFactory;
-import org.hibernate.query.NativeQuery;
-import tv.codely.shared.domain.Utils;
+import java.sql.SQLException;
+import java.util.Collections;
 import tv.codely.shared.domain.bus.event.DomainEvent;
 import tv.codely.shared.domain.bus.event.EventBus;
 
-import java.io.Serializable;
-import java.util.HashMap;
 import java.util.List;
+import tv.codely.shared.infrastructure.bus.inmemory.InMemoryEventBus;
 
 public final class MySqlEventBus implements EventBus {
-    private final SessionFactory sessionFactory;
+    private final MySqlPublisher publisher;
 
-    public MySqlEventBus(SessionFactory sessionFactory) {
-        this.sessionFactory = sessionFactory;
+    private final InMemoryEventBus failoverPublisher;
+
+    public MySqlEventBus(MySqlPublisher publisher,
+                         InMemoryEventBus failoverPublisher) {
+        this.publisher         = publisher;
+        this.failoverPublisher = failoverPublisher;
     }
 
     @Override
@@ -23,23 +25,10 @@ public final class MySqlEventBus implements EventBus {
     }
 
     private void publish(DomainEvent domainEvent) {
-        String                        id          = domainEvent.eventId();
-        String                        aggregateId = domainEvent.aggregateId();
-        String                        name        = domainEvent.eventName();
-        HashMap<String, Serializable> body        = domainEvent.toPrimitives();
-        String                        occurredOn  = domainEvent.occurredOn();
-
-        NativeQuery query = sessionFactory.getCurrentSession().createNativeQuery(
-            "INSERT INTO domain_events (id,  aggregate_id, name,  body,  occurred_on) " +
-            "VALUES (:id, :aggregateId, :name, :body, :occurredOn);"
-        );
-
-        query.setParameter("id", id)
-             .setParameter("aggregateId", aggregateId)
-             .setParameter("name", name)
-             .setParameter("body", Utils.jsonEncode(body))
-             .setParameter("occurredOn", occurredOn);
-
-        query.executeUpdate();
+        try {
+            this.publisher.publish(domainEvent);
+        } catch (SQLException e) {
+            failoverPublisher.publish(Collections.singletonList(domainEvent));
+        }
     }
 }

@@ -1,5 +1,6 @@
 package tv.codely.mooc.shared.infrastructure.bus.event.mysql;
 
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import tv.codely.mooc.MoocContextInfrastructureTestCase;
