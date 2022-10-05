@@ -30,3 +30,7 @@ Comprobar si se dispara una exception al consumir eventos no existentes
 Comprobar si se reintenta un evento
 Comprobar se se envia la dead letter despues de reintentar varias veces.
 TODO
+
+13) Crear comando para registrar estudiante (CreateStudentCommand)
+
+14) Crea el módulo relativo al contador de videos, el cual contiene el caso de uso de obtener total de videos de un curso.
