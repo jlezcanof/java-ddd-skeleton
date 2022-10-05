@@ -5,22 +5,17 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import org.hibernate.SessionFactory;
 import org.hibernate.query.NativeQuery;
-import org.springframework.beans.factory.annotation.Qualifier;
-import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.Utils;
 import tv.codely.shared.domain.bus.event.DomainEvent;
 
-@Service
 public final class MySqlPublisher {
 
-    @Qualifier("mooc-session_factory")
-    private SessionFactory sessionFactory;// final
+    private final SessionFactory sessionFactory;
 
-    //mooc-session_factory
-    //@Qualifier("backoffice-session_factory")
-//    public MySqlPublisher(SessionFactory sessionFactory) {
-//        this.sessionFactory = sessionFactory;
-//    }
+    public MySqlPublisher(SessionFactory
+                              sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
 
     public void publish(DomainEvent domainEvent) throws SQLException {

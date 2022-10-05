@@ -16,25 +16,24 @@ public class MoocMySqlEventBusConfiguration {
     private final SessionFactory            sessionFactory;
     private final DomainEventsInformation   domainEventsInformation;
     private final SpringApplicationEventBus bus;
-    private final MySqlPublisher publisher;
     private final InMemoryEventBus memoryEventBus;
 
     public MoocMySqlEventBusConfiguration(
         @Qualifier("mooc-session_factory") SessionFactory sessionFactory,
         DomainEventsInformation domainEventsInformation,
         SpringApplicationEventBus bus,
-        MySqlPublisher publisher, InMemoryEventBus memoryEventBus) {
+        InMemoryEventBus memoryEventBus) {
         this.sessionFactory          = sessionFactory;
         this.domainEventsInformation = domainEventsInformation;
         this.bus                     = bus;
-        this.publisher               = publisher;
         this.memoryEventBus          = memoryEventBus;
     }
 
     @Bean
     public MySqlEventBus moocMysqlEventBus() {
-        return new MySqlEventBus(publisher, memoryEventBus);
+        return new MySqlEventBus(new MySqlPublisher(sessionFactory), memoryEventBus);
     }
+
 
     @Bean
     public MySqlDomainEventsConsumer moocMySqlDomainEventsConsumer() {
