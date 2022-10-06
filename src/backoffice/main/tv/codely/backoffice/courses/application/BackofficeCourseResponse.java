@@ -14,6 +14,7 @@ public final class BackofficeCourseResponse implements Response {
         this.duration = duration;
     }
 
+    // factory method, naming constructor
     public static BackofficeCourseResponse fromAggregate(BackofficeCourse course) {
         return new BackofficeCourseResponse(course.id(), course.name(), course.duration());
     }

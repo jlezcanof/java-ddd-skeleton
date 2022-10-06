@@ -8,7 +8,7 @@
 
 4) Siguiendo el ejemplo de este repositorio, crea un nuevo ObjectMother para la entidad Student y los Value Objects que estimes necesarios para poder mejorar nuestros tests unitarios.
 
-5) Implementa el repositorio de Video para MySql aprovechando la configuración para Hibernate que hemos visto anteriormente de modo que podamos buscar un video concreto por su ID.
+5) Implementa el repositorio de Video para MySql aprovechando la configuración para Hibernate que hemos visto anteriormente de modo que podamos buscar un video concreto por su ID. TODO
 
 6) Siguiendo con los ejemplos vistos en este repositorio, crea la aplicación de Mooc Frontend y prepara las configuraciones mínimamente necesarias para poder levantarla.
 
@@ -36,4 +36,6 @@ TODO
 14) Crea el módulo relativo al contador de videos, el cual contiene el caso de uso de obtener total de videos de un curso.
 
 15) Formulario registrar estudiante: crea el formulario necesario para registrar un nuevo estudiante en el sistema.
+
+16) Crear proyeccion de videos en el backoffice: prepara la infraestructura necesaria para poder contar con una proyección de los videos que se añadan desde el contexto de Mooc y acceder a ella vía controller. TODO
 
