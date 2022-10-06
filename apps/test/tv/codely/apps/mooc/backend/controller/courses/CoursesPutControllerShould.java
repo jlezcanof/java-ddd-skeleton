@@ -1,6 +1,5 @@
 package tv.codely.apps.mooc.backend.controller.courses;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import tv.codely.apps.mooc.MoocApplicationTestCase;
 

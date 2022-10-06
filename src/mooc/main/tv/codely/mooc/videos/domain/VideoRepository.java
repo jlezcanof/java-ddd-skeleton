@@ -1,10 +1,12 @@
 package tv.codely.mooc.videos.domain;
 
 import java.util.Optional;
+import tv.codely.mooc.steps.domain.StepId;
+import tv.codely.mooc.steps.domain.video.VideoStep;
 
 public interface VideoRepository {
-    Optional<Video> search(VideoId id);
-    //void save(Course course);
+    Optional<VideoStep> search(StepId videoId);
 
-    //List<Course> matching(Criteria criteria);
+    void save(VideoStep video);
+
 }
