@@ -6,8 +6,6 @@ import tv.codely.mooc.students.domain.StudentId;
 import tv.codely.mooc.students.domain.StudentIdMother;
 import tv.codely.mooc.students.domain.StudentRegisteredDomainEventMother;
 import tv.codely.mooc.students_register.StudentsRegisterModuleUnitTestCase;
-import tv.codely.mooc.students_register.application.incrementer.IncrementerStudentsOnStudentRegistered;
-import tv.codely.mooc.students_register.application.incrementer.StudentsRegisterIncrementer;
 import tv.codely.mooc.students_register.domain.StudentsRegister;
 import tv.codely.mooc.students_register.domain.StudentsRegisterMother;
 import tv.codely.shared.domain.student.StudentRegisteredDomainEvent;
