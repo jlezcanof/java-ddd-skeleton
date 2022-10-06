@@ -41,29 +41,29 @@ ping-mysql:
 # Start mooc backend server
 .PHONY: start-mooc_backend
 start-mooc_backend:
-	@./gradlew :bootRun --args='mooc_backend server'
+	@./gradlew :bootRun --args="mooc_backend server"
 
 # Start mooc frontend server
 .PHONY: start-mooc_frontend
 start-mooc_frontend:
-	@./gradlew :bootRun --args='mooc_frontend server'
+	@./gradlew :bootRun --args="mooc_frontend server"
 
 .PHONY: start-backoffice_backend
 start-backoffice_backend:
-	@./gradlew :bootRun --args='backoffice_backend server'
+	@./gradlew :bootRun --args="backoffice_backend server"
 
 .PHONY: start-backoffice_frontend
 start-backoffice_frontend:
-	@./gradlew :bootRun --args='backoffice_frontend server'
+	@./gradlew :bootRun --args="backoffice_frontend server"
 
 .PHONY: start-mooc_backend_api
 start-mooc_backend_api:
-	@./gradlew :bootRun --args='mooc_backend api'
+	@./gradlew :bootRun --args="mooc_backend api"
 
 .PHONY: start-mooc_backend_domain-events
 start-mooc_backend_domain-events:
-	@./gradlew :bootRun --args='mooc_backend domain-events:mysql:consume'
+	@./gradlew :bootRun --args="mooc_backend domain-events:mysql:consume"
 
 .PHONY: start-backoffice_backend_domain-events
 start-backoffice_backend_domain-events:
-	@./gradlew :bootRun --args='backoffice_backend domain-events:mysql:consume'
+	@./gradlew :bootRun --args="backoffice_backend domain-events:mysql:consume"

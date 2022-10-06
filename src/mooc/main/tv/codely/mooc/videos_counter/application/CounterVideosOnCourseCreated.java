@@ -1,8 +1,6 @@
 package tv.codely.mooc.videos_counter.application;
 
 
-import tv.codely.mooc.students_register.application.StudentsRegisterIncrementer;
-import tv.codely.shared.domain.Service;
 import tv.codely.shared.domain.bus.event.DomainEventSubscriber;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 

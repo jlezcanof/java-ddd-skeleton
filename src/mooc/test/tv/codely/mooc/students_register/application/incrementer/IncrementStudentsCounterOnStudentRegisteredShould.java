@@ -1,4 +1,4 @@
-package tv.codely.mooc.students_register.application;
+package tv.codely.mooc.students_register.application.incrementer;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

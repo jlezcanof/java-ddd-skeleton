@@ -34,3 +34,6 @@ TODO
 13) Crear comando para registrar estudiante (CreateStudentCommand)
 
 14) Crea el módulo relativo al contador de videos, el cual contiene el caso de uso de obtener total de videos de un curso.
+
+15) Formulario registrar estudiante: crea el formulario necesario para registrar un nuevo estudiante en el sistema.
+
