@@ -8,7 +8,7 @@
 
 4) Siguiendo el ejemplo de este repositorio, crea un nuevo ObjectMother para la entidad Student y los Value Objects que estimes necesarios para poder mejorar nuestros tests unitarios.
 
-5) Implementa el repositorio de Video para MySql aprovechando la configuración para Hibernate que hemos visto anteriormente de modo que podamos buscar un video concreto por su ID. TODO
+5) Implementa el repositorio de Video para MySql aprovechando la configuración para Hibernate que hemos visto anteriormente de modo que podamos buscar un video concreto por su ID.
 
 6) Siguiendo con los ejemplos vistos en este repositorio, crea la aplicación de Mooc Frontend y prepara las configuraciones mínimamente necesarias para poder levantarla.
 
