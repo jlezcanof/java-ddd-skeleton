@@ -1,4 +1,4 @@
-package tv.codely.mooc.students_register.application;
+package tv.codely.mooc.students_register.application.incrementer;
 
 import tv.codely.mooc.students.domain.StudentId;
 import tv.codely.shared.domain.Service;
