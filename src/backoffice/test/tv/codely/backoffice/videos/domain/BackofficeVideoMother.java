@@ -9,9 +9,9 @@ public final class BackofficeVideoMother {
         return new BackofficeVideo(id,text,title,url);
     }
 
-//    public static BackofficeVideo create( String text, String title, String url) {
-//        return new BackofficeVideo(UuidMother.random(), text, title, url);
-//    }
+    public static BackofficeVideo create( String text, String title, String url) {
+        return new BackofficeVideo(UuidMother.random(), text, title, url);
+    }
 
     public static BackofficeVideo random() {
         return create(UuidMother.random(), WordMother.random(), WordMother.random(),

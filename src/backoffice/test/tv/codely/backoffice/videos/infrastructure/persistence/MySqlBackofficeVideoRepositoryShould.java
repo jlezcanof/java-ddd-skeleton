@@ -9,7 +9,7 @@ import tv.codely.backoffice.videos.domain.BackofficeVideoMother;
 import tv.codely.backoffice.videos.domain.BackofficeVideoRepository;
 
 @Transactional
-@Disabled
+@Disabled//se comenta porque da un problema de mapeo de hibernate con backofficevideo
 class MySqlBackofficeVideoRepositoryShould extends BackofficeContextInfrastructureTestCase {
     @Autowired
     //@Qualifier("mySqlBackofficevideoRepository")
