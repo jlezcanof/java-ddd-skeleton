@@ -1,11 +1,13 @@
 package tv.codely.backoffice.videos.infrastructure.persistence;
 
+import java.util.List;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.transaction.annotation.Transactional;
 import tv.codely.backoffice.videos.domain.BackofficeVideo;
 import tv.codely.backoffice.videos.domain.BackofficeVideoRepository;
 import tv.codely.shared.domain.Service;
+import tv.codely.shared.domain.criteria.Criteria;
 import tv.codely.shared.infrastructure.hibernate.HibernateRepository;
 
 @Service
@@ -21,4 +23,15 @@ public class MySqlBackofficeVideoRepository extends HibernateRepository<Backoffi
     public void save(BackofficeVideo video) {
         persist(video);
     }
+
+    @Override
+    public List<BackofficeVideo> matching(Criteria criteria) {
+        return matching(criteria);
+    }
+
+    @Override
+    public List<BackofficeVideo> searchAll() {
+        return all();
+    }
+
 }
