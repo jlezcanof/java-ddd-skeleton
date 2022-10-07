@@ -43,7 +43,7 @@ final class ElasticsearchBackofficeVideoRepositoryShould extends BackofficeConte
 
     @Test
     void search_videos_using_a_criteria() throws Exception {
-        BackofficeVideo matchingVideo        = BackofficeVideoMother.create("video sobre ddd en "
+        BackofficeVideo matchingVideo = BackofficeVideoMother.create("video sobre ddd en "
                 + "java", "DDD en Java",
             "https://www.mysqltutorial.org/mysql-show-databases");
 

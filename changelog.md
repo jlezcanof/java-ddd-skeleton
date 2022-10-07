@@ -44,5 +44,20 @@ TODO
 18) Integra el repositorio de Cursos con Elasticsearch en el contexto de Mooc del repositorio para que podamos disponer también de esta integración además de la existente con MySql.
 pendiente upgradear libreria elastic search a 7.x
 
+19) Añade cualquiera de las alternativas de cache que hemos visto en la lección a la consulta del listado de Cursos en el Backoffice:
+    - crear cache control y etag como ejemplo en videos get controller
+    alternativas: etag, expires, last-modified, cache-control
+
+   beneficio: la peticion mas rapida es la que no se hace
+
+   alternativa servidor revers proxy:
+   ejemplos: varnish, akamai, fastly, cloudfront, cloudfare
+   beneficio: cualquier ya se beneficia
+
+   complicado de debugar un problema de caches
+
+   validar caches es un problema en la programacion (cache de servidor como proxy reverso)
+   https://www.baeldung.com/etags-for-rest-with-spring
+
 
 
