@@ -9,6 +9,7 @@ import tv.codely.backoffice.videos.domain.BackofficeVideoMother;
 import tv.codely.backoffice.videos.domain.BackofficeVideoRepository;
 
 @Transactional
+@Disabled
 class MySqlBackofficeVideoRepositoryShould extends BackofficeContextInfrastructureTestCase {
     @Autowired
     //@Qualifier("mySqlBackofficevideoRepository")
