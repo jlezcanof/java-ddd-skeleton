@@ -7,8 +7,7 @@ import tv.codely.backoffice.videos.domain.BackofficeVideoMother;
 
 final class InMemoryBackofficeVideoRepositoryShould extends
     BackofficeContextInfrastructureTestCase {
-
-
+    
     private InMemoryBackofficeVideoRepository inMemoryBackofficeVideoRepository =
         new InMemoryBackofficeVideoRepository();
     @Test
