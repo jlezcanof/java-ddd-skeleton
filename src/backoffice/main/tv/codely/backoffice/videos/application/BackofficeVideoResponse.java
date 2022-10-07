@@ -10,6 +10,22 @@ public final class BackofficeVideoResponse implements Response {
 
     private final String title;
 
+    public String id() {
+        return id;
+    }
+
+    public String text() {
+        return text;
+    }
+
+    public String title() {
+        return title;
+    }
+
+    public String url() {
+        return url;
+    }
+
     private final String url;
 
     public BackofficeVideoResponse(String id, String text, String title, String url) {

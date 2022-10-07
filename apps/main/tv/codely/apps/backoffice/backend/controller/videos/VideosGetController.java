@@ -30,21 +30,20 @@ public final class VideosGetController extends ApiController {
     @GetMapping("/videos")
     public List<HashMap<String, String>> index(
         @RequestParam HashMap<String, Serializable> params
-    ) throws QueryHandlerExecutionError {
+                                              ) throws QueryHandlerExecutionError {
         BackofficeVideosResponse videos = ask(
             new SearchBackofficeVideosByCriteriaQuery(
-            parseFilters(params),
-            Optional.ofNullable((String) params.get("order_by")),
-            Optional.ofNullable((String) params.get("order")),
-            Optional.ofNullable((Integer) params.get("limit")),
-            Optional.ofNullable((Integer) params.get("offset"))
-                                                                                  )
-                                             );
-// TODO ver que pasa aqui
+                parseFilters(params),
+                Optional.ofNullable((String) params.get("order_by")),
+                Optional.ofNullable((String) params.get("order")),
+                Optional.ofNullable((Integer) params.get("limit")),
+                Optional.ofNullable((Integer) params.get("offset"))
+            ));
         return videos.videos().stream().map(response -> new HashMap<String, String>() {{
-//            put("id", response.id());
-//            put("name", response.name());
-//            put("duration", response.duration());
+            put("id", response.id());
+            put("title", response.title());
+            put("text", response.text());
+            put("url", response.url());
         }}).collect(Collectors.toList());
     }
 

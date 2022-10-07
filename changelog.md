@@ -37,5 +37,7 @@ TODO
 
 15) Formulario registrar estudiante: crea el formulario necesario para registrar un nuevo estudiante en el sistema.
 
-16) Crear proyeccion de videos en el backoffice: prepara la infraestructura necesaria para poder contar con una proyección de los videos que se añadan desde el contexto de Mooc y acceder a ella vía controller. TODO
+16) Crear proyeccion de videos en el backoffice: prepara la infraestructura necesaria para poder contar con una proyección de los videos que se añadan desde el contexto de Mooc y acceder a ella vía controller. (mirar el problema de mapeo con backofficeVideo TODO)
+
+17) Añade lo necesario para poder filtrar Videos vía Controller (Quizás tengas que crear el Controller si no existe aún en el repositorio),
 
