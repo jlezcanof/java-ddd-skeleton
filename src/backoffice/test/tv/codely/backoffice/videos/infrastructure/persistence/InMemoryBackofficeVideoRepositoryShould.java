@@ -1,13 +1,16 @@
 package tv.codely.backoffice.videos.infrastructure.persistence;
 
 import org.junit.jupiter.api.Test;
+import tv.codely.backoffice.BackofficeContextInfrastructureTestCase;
 import tv.codely.backoffice.videos.domain.BackofficeVideo;
 import tv.codely.backoffice.videos.domain.BackofficeVideoMother;
-import tv.codely.backoffice.videos.infrastructure.BackofficeVideoCreateModuleInfrastructureTestCase;
 
 final class InMemoryBackofficeVideoRepositoryShould extends
-    BackofficeVideoCreateModuleInfrastructureTestCase {
+    BackofficeContextInfrastructureTestCase {
 
+
+    private InMemoryBackofficeVideoRepository inMemoryBackofficeVideoRepository =
+        new InMemoryBackofficeVideoRepository();
     @Test
     void save_a_video() {
         BackofficeVideo video = BackofficeVideoMother.random();
