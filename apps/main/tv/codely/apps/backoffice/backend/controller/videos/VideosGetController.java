@@ -1,12 +1,16 @@
 package tv.codely.apps.backoffice.backend.controller.videos;
 
 import java.io.Serializable;
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Optional;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
+import org.springframework.http.CacheControl;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -28,9 +32,9 @@ public final class VideosGetController extends ApiController {
     }
 
     @GetMapping("/videos")
-    public List<HashMap<String, String>> index(
-        @RequestParam HashMap<String, Serializable> params
-                                              ) throws QueryHandlerExecutionError {
+    public ResponseEntity<List<HashMap<String, String>>> index(
+                                                              @RequestParam HashMap<String, Serializable> params
+                                                             ) throws QueryHandlerExecutionError {
         BackofficeVideosResponse videos = ask(
             new SearchBackofficeVideosByCriteriaQuery(
                 parseFilters(params),
@@ -39,12 +43,17 @@ public final class VideosGetController extends ApiController {
                 Optional.ofNullable((Integer) params.get("limit")),
                 Optional.ofNullable((Integer) params.get("offset"))
             ));
-        return videos.videos().stream().map(response -> new HashMap<String, String>() {{
+
+        return ResponseEntity.ok()
+            .eTag("MD5 o clave")
+            .cacheControl(CacheControl.maxAge(10, TimeUnit.DAYS))
+            .cacheControl(CacheControl.maxAge(Duration.ZERO))
+            .body(videos.videos().stream().map(response -> new HashMap<String, String>() {{
             put("id", response.id());
             put("title", response.title());
             put("text", response.text());
             put("url", response.url());
-        }}).collect(Collectors.toList());
+        }}).collect(Collectors.toList()));
     }
 
     @Override
