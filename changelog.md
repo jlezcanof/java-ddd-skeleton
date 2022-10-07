@@ -42,4 +42,7 @@ TODO
 17) Añade lo necesario para poder filtrar Videos vía Controller (Quizás tengas que crear el Controller si no existe aún en el repositorio).
 
 18) Integra el repositorio de Cursos con Elasticsearch en el contexto de Mooc del repositorio para que podamos disponer también de esta integración además de la existente con MySql.
+pendiente upgradear libreria elastic search a 7.x
+
+
 

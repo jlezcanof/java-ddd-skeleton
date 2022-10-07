@@ -1,5 +1,8 @@
 package tv.codely.mooc.courses.domain;
 
+import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 import tv.codely.shared.domain.AggregateRoot;
 import tv.codely.shared.domain.course.CourseCreatedDomainEvent;
 
@@ -59,5 +62,20 @@ public final class Course extends AggregateRoot {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, duration);
+    }
+
+    public HashMap<String, Serializable> toPrimitives() {
+        return new HashMap<String, Serializable>() {{
+            put("id", id.value());
+            put("name", name.value());
+            put("duration", duration.value());
+        }};
+    }
+
+    public static Course fromPrimitives(Map<String, Object> plainData) {
+        return new Course(new CourseId((String) plainData.get("id")),
+            new CourseName((String) plainData.get("name")),
+            new CourseDuration((String) plainData.get("duration"))
+        );
     }
 }
