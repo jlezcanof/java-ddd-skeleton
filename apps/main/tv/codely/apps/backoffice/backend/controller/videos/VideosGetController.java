@@ -12,10 +12,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-import tv.codely.backoffice.courses.application.BackofficeCoursesResponse;
-import tv.codely.backoffice.courses.application.search_by_criteria.SearchBackofficeCoursesByCriteriaQuery;
 import tv.codely.backoffice.videos.application.BackofficeVideosResponse;
-import tv.codely.backoffice.videos.application.search_all.SearchAllBackofficeVideosQuery;
+import tv.codely.backoffice.videos.application.search_by_criteria.SearchBackofficeVideosByCriteriaQuery;
 import tv.codely.shared.domain.DomainError;
 import tv.codely.shared.domain.bus.command.CommandBus;
 import tv.codely.shared.domain.bus.query.QueryBus;
@@ -34,7 +32,13 @@ public final class VideosGetController extends ApiController {
         @RequestParam HashMap<String, Serializable> params
     ) throws QueryHandlerExecutionError {
         BackofficeVideosResponse videos = ask(
-            new SearchAllBackofficeVideosQuery()
+            new SearchBackofficeVideosByCriteriaQuery(
+            parseFilters(params),
+            Optional.ofNullable((String) params.get("order_by")),
+            Optional.ofNullable((String) params.get("order")),
+            Optional.ofNullable((Integer) params.get("limit")),
+            Optional.ofNullable((Integer) params.get("offset"))
+                                                                                  )
                                              );
 // TODO ver que pasa aqui
         return videos.videos().stream().map(response -> new HashMap<String, String>() {{
