@@ -46,8 +46,8 @@ public final class VideosGetController extends ApiController {
 
         return ResponseEntity.ok()
             .eTag("MD5 o clave")
-            .cacheControl(CacheControl.maxAge(10, TimeUnit.DAYS))
-            .cacheControl(CacheControl.maxAge(Duration.ZERO))
+            .cacheControl(CacheControl.maxAge(1, TimeUnit.DAYS))
+            //.cacheControl(CacheControl.maxAge(Duration.ZERO))
             .body(videos.videos().stream().map(response -> new HashMap<String, String>() {{
             put("id", response.id());
             put("title", response.title());

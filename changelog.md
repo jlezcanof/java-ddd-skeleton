@@ -45,5 +45,17 @@ TODO
 pendiente upgradear libreria elastic search a 7.x
 
 19 ) crear cache control y etag como ejemplo en videos get controller
+alternativas: etag, expires, last-modified, cache-control
+
+beneficio: la peticion mas rapida es la que no se hace
+
+alternativa servidor revers proxy:
+ejemplos: varnish, akamai, fastly, cloudfront, cloudfare
+beneficio: cualquier ya se beneficia
+
+complicado de debugar un problema de caches
+
+validar caches es un problema en la programacion (cache de servidor como proxy reverso)
+
 
 
