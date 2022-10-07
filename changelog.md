@@ -39,5 +39,7 @@ TODO
 
 16) Crear proyeccion de videos en el backoffice: prepara la infraestructura necesaria para poder contar con una proyección de los videos que se añadan desde el contexto de Mooc y acceder a ella vía controller. (mirar el problema de mapeo con backofficeVideo TODO)
 
-17) Añade lo necesario para poder filtrar Videos vía Controller (Quizás tengas que crear el Controller si no existe aún en el repositorio),
+17) Añade lo necesario para poder filtrar Videos vía Controller (Quizás tengas que crear el Controller si no existe aún en el repositorio).
+
+18) Integra el repositorio de Cursos con Elasticsearch en el contexto de Mooc del repositorio para que podamos disponer también de esta integración además de la existente con MySql.
 

@@ -17,5 +17,6 @@ public abstract class BackofficeContextInfrastructureTestCase extends Infrastruc
 
     protected void clearElasticsearch() throws IOException {
         elasticsearchArranger.arrange("backoffice", "backoffice_courses");
+        elasticsearchArranger.arrange("backoffice", "backoffice_videos");
     }
 }

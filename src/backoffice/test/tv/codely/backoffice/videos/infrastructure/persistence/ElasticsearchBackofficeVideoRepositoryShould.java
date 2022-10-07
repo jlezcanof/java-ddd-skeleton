@@ -10,7 +10,9 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import tv.codely.backoffice.BackofficeContextInfrastructureTestCase;
 import tv.codely.backoffice.videos.domain.BackofficeVideo;
+import tv.codely.backoffice.videos.domain.BackofficeVideoCriteriaMother;
 import tv.codely.backoffice.videos.domain.BackofficeVideoMother;
+import tv.codely.shared.domain.criteria.Criteria;
 
 final class ElasticsearchBackofficeVideoRepositoryShould extends BackofficeContextInfrastructureTestCase {
     @Autowired
@@ -22,12 +24,12 @@ final class ElasticsearchBackofficeVideoRepositoryShould extends BackofficeConte
     }
 
     @Test
-    void save_a_course() {
+    void save_a_video() {
         repository.save(BackofficeVideoMother.random());
     }
 
     @Test
-    void search_all_existing_courses() throws Exception {
+    void search_all_existing_videos() throws Exception {
         BackofficeVideo video        = BackofficeVideoMother.random();
         BackofficeVideo anotherVideo = BackofficeVideoMother.random();
 
@@ -39,24 +41,31 @@ final class ElasticsearchBackofficeVideoRepositoryShould extends BackofficeConte
         eventually(() -> assertEquals(expected, repository.searchAll()));
     }
 
-//    @Test//TODO preparar
-//    void search_courses_using_a_criteria() throws Exception {
-//        BackofficeVideo matchingCourse        = BackofficeVideoMother.create("DDD en Java", "3 days");
-//        BackofficeVideo anotherMatchingCourse = BackofficeVideoMother.create("DDD en TypeScript", "2.5 days");
-//        BackofficeVideo intellijCourse        = BackofficeVideoMother.create("Exprimiendo Intellij", "48 hours");
-//        BackofficeVideo cobolCourse           = BackofficeVideoMother.create("DDD en Cobol", "5 years");
-//
-//        Criteria               criteria =
-//            BackofficeVideoCriteriaMother.titleAndTextAndUrlContains("Patron "
-//                + "criteria/specification", "se explica como usar el patron creacional criteria",
-//                "https://www.youtube.com/watch?v=8BflD134BKM");
-//        List<BackofficeVideo> expected = Arrays.asList(matchingCourse, anotherMatchingCourse);
-//
-//        repository.save(matchingCourse);
-//        repository.save(anotherMatchingCourse);
-//        repository.save(intellijCourse);
-//        repository.save(cobolCourse);
-//
-//        eventually(() -> assertEquals(expected, repository.matching(criteria)));
-//    }
+    @Test
+    void search_videos_using_a_criteria() throws Exception {
+        BackofficeVideo matchingVideo        = BackofficeVideoMother.create("video sobre ddd en "
+                + "java", "DDD en Java",
+            "https://www.mysqltutorial.org/mysql-show-databases");
+
+        BackofficeVideo anotherMatchingVideo = BackofficeVideoMother.create("video sobre ddd en "
+                + "javascript",
+            "DDD en javascript", "https://www.mysqltutorial.org/mysql-show-databases");
+
+        BackofficeVideo dddEnTypeScript = BackofficeVideoMother.create("video sobre ddd en "
+                + "typescript",
+            "DDD en typescript", "https://mvnrepository.com/");
+
+
+        Criteria criteria =
+            BackofficeVideoCriteriaMother.textAndTitleAndUrlContains("video", "DDD", "mysql");
+
+        List<BackofficeVideo> expected = Arrays.asList(matchingVideo, anotherMatchingVideo,
+            dddEnTypeScript);
+
+        repository.save(matchingVideo);
+        repository.save(anotherMatchingVideo);
+        repository.save(dddEnTypeScript);
+
+        eventually(() -> assertEquals(expected, repository.matching(criteria)));
+    }
 }

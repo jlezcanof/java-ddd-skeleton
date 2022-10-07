@@ -1,0 +1,27 @@
+{
+  "mappings": {
+    "videos": {
+      "properties": {
+        "id": {
+          "type": "keyword",
+          "index": true
+        },
+        "text": {
+          "type": "text",
+          "index": true,
+          "fielddata": true
+        },
+        "title": {
+          "type": "text",
+          "index": true,
+          "fielddata": true
+        },
+        "url": {
+          "type": "text",
+          "index": true,
+          "fielddata": true
+        }
+      }
+    }
+  }
+}

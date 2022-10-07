@@ -7,10 +7,10 @@ import tv.codely.shared.domain.criteria.Filters;
 import tv.codely.shared.domain.criteria.Order;
 
 public final class BackofficeVideoCriteriaMother {
-    public static Criteria titleAndTextAndUrlContains(String title, String text, String url) {
+    public static Criteria textAndTitleAndUrlContains(String text, String title, String url) {
+        Filter textFilter  = Filter.create("text",  "contains", text);
         Filter titleFilter = Filter.create("title", "contains", title);
-        Filter textFilter  = Filter.create("text", "contains", text);
-        Filter urlFilter   = Filter.create("url", "contains", url);
+        Filter urlFilter   = Filter.create("url",  "contains", url);
 
         return new Criteria(new Filters(Arrays.asList(titleFilter, textFilter, urlFilter)),
             Order.asc(
