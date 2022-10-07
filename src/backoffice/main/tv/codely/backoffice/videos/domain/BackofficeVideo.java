@@ -57,8 +57,8 @@ public final class BackofficeVideo {
     public HashMap<String, Serializable> toPrimitives() {
         return new HashMap<String, Serializable>() {{
             put("id", id);
-            put("name", text);
-            put("duration", title);
+            put("text", text);
+            put("title", title);
             put("url", url);
         }};
     }

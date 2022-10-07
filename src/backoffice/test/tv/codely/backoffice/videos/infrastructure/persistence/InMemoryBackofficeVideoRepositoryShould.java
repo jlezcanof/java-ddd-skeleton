@@ -9,7 +9,7 @@ final class InMemoryBackofficeVideoRepositoryShould extends
     BackofficeVideoCreateModuleInfrastructureTestCase {
 
     @Test
-    void save_a_course() {
+    void save_a_video() {
         BackofficeVideo video = BackofficeVideoMother.random();
 
         inMemoryBackofficeVideoRepository.save(video);
